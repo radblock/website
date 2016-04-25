@@ -3,7 +3,7 @@
 var gulp = require('gulp')
 var template = require('gulp-template')
 var awspublish = require('gulp-awspublish')
-var deps = require('deps.json')
+var deps = require('./deps.json')
 
 gulp.task('build', function () {
   return gulp.src('src/**/*').pipe(template(deps))
