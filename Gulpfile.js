@@ -18,7 +18,8 @@ gulp.task('deploy', ['build'], function () {
     }
   }, {})
 
-  return gulp.src('dist/**/*').pipe(awspublish.gzip({}))
+  return gulp.src('dist/**/*')
+                              // .pipe(awspublish.gzip({}))
                               .pipe(publisher.publish({}, {force: true}))
                               .pipe(awspublish.reporter())
 })
