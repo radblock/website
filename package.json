@@ -11,6 +11,8 @@
     "gulp": "^3.9.1",
     "gulp-awspublish": "^3.0.2",
     "gulp-template": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
-
