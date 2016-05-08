@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Radblock</title>
+    <style>
+      body,
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      body {
+        padding-bottom: 50;
+      }
+      .flex {
+        max-width: 800px;
+      }
+      .submission {
+        max-width: 300px;
+        border: 3px solid;
+        padding: 1em 3em;
+        margin: 2em 0;
+      }
+      form > * {
+        width: 100%;
+      }
+
+      header {
+        background-image: url('stop.png');
+        background-position: center;
+        width: 500px;
+        height: 500px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+      header h1 {
+        text-transform: uppercase;
+      }
+
+      .vimeo {
+        position: relative;
+        display: block;
+        padding: 0;
+        width: 600px;
+        padding-bottom: 56%;
+        height: 0;
+      }
+      .vimeo iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        border: 0;
+      }
+
+      #flash {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .flash {
+        background: white;
+        margin: 10px;
+        width: 400px;
+        border: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="flex">
+      <div>
+        <h1>Radblock</h1>
+        <h2>#the first of its kind</h2>
+      </div>
+    </header>
+
+    <section class="flex">
+      <div class="vimeo">
+        <iframe src="https://player.vimeo.com/video/165628371?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="flex">
+      <h1>Creating a platform for Net Artists at SAIC</h1>
+      <button>Download</button>
+      <p>install radblock and watch all of the annoying ads in your life get replaced by awesome net art [by cutting-edge saic students]</p>
+    </section>
+
+    <section class="flex">
+      <h1>Current Gifs</h1>
+      <div id="gifs"></div>
+    </section>
+
+    <section class="submission">
+      <h1>Submit a gif</h1>
+      <p>pay [a dollar], [verify your saic email address,] and upload a .gif. for the next [week], your .gif will be added to our pool of ad-replacement .gifs.</p>
+      <form>
+        <input id="email" type="text" placeholder="email" name="email"><br>
+        <input id="password" type="password" placeholder="password" name="email"><br>
+        <input id="file" type="file">
+      </form>
+    </section>
+
+    <footer class="flex">
+      <p>Created by Andrew Monks &amp; Taylor Cleveland</p>
+    </footer>
+
+    <div id="flash"></div>
+
+    <script src="upload.js"></script>
+    <script>
+      const config = {
+        lambda_url: 'https://89c4l3k2gj.execute-api.us-east-1.amazonaws.com/latest/'
+      }
+    </script>
+    <script>
+      let i = Math.floor(Math.random() * 360)
+      console.log('i', i)
+      function loop () {
+        i += 0.1
+        let html = document.getElementsByTagName('html')[0]
+        html.style.backgroundColor = 'hsl(' + i % 360 + ', 100%, 90%)'
+        requestAnimationFrame(loop)
+      }
+      requestAnimationFrame(loop)
+
+      const email = getParameterByName('email')
+      const code = getParameterByName('code')
+      if ( email && code ) {
+        console.log('email', email, 'code', code)
+        console.log('gotta validate email')
+        const url = config.lambda_url + 'verify?email=' + email + '&code=' + code
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', url)
+        flasher('Confirming your account and adding your gif...')
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            return flasher('Verified email! Your gif is now showing up in people\'s browsers.')
+          }
+          flasher('Could not verify email address.')
+        }
+        xhr.onerror = function () {
+          flasher('Could not verify email address.')
+        }
+        xhr.send(file)
+      }
+
+      var flashes = 0
+      function flasher (msg) {
+        var el = document.getElementById('flash')
+        flashes += 1
+        const flash = flashes.toString()
+        el.innerHTML += '<div class="flash" id="' + flash + '">' + msg + '<\/div>'
+        setTimeout(function () {
+          el.removeChild(document.getElementById(flash))
+        }, 5000)
+      }
+
+      new Uploader({
+        input: {
+          file: document.getElementById('file'),
+          email: document.getElementById('email'),
+          password: document.getElementById('password')
+        },
+        signatory_url: config.lambda_url + 'submit',
+        logger: flasher
+      })
+
+      // http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href
+        name = name.replace(/[\[\]]/g, "\\$&")
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url)
+        if (!results) return null
+        if (!results[2]) return ''
+        return decodeURIComponent(results[2].replace(/\+/g, " "))
+      }
+    </script>
+  </body>
+</html>
