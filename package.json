@@ -1,0 +1,18 @@
+{
+  "name": "radblock.xyz",
+  "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build",
+    "deploy": "./node_modules/.bin/gulp deploy"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.0.2",
+    "gulp-template": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
