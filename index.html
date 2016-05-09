@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Radblock</title>
+
+    <link rel='stylesheet' id='tf-google-webfont-montserrat-css'  href='http://fonts.googleapis.com/css?family=Montserrat%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
+    <link rel='stylesheet' id='tf-google-webfont-source-code-pro-css'  href='http://fonts.googleapis.com/css?family=Source+Code+Pro%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
+    <link rel='stylesheet' id='tf-google-webfont-roboto-css'  href='http://fonts.googleapis.com/css?family=Roboto%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
+
     <style>
       body,
       form {
@@ -15,9 +20,10 @@
       }
       body {
         padding-bottom: 50;
+        font-family: "Source Code Pro", sans-serif;
       }
       .flex {
-        max-width: 800px;
+        max-width: 881px;
       }
       .submission {
         max-width: 300px;
@@ -25,6 +31,11 @@
         padding: 1em 3em;
         margin: 2em 0;
       }
+
+      .plugin {
+        max-width: 500px;
+      }
+
       form > * {
         width: 100%;
       }
@@ -37,11 +48,136 @@
         align-items: center;
         justify-content: center;
         display: flex;
+        font-size: 200%;
       }
       header h1 {
         text-transform: uppercase;
+        font-family: Montserrat,sans-serif;
       }
 
+      header h2 {
+        font-family: Montserrat,sans-serif;
+        font-size: 100%;
+      }
+
+      h1{
+        font-family: Roboto;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+            touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .btn:focus,
+      .btn:active:focus,
+      .btn.active:focus,
+      .btn.focus,
+      .btn:active.focus,
+      .btn.active.focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+      .btn:hover,
+      .btn:focus,
+      .btn.focus {
+        color: #333333;
+        text-decoration: none;
+      }
+      .btn:active,
+      .btn.active {
+        outline: 0;
+        background-image: none;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      }
+      .btn.disabled,
+      .btn[disabled],
+      fieldset[disabled] .btn {
+        cursor: not-allowed;
+        opacity: 0.65;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      a.btn.disabled,
+      fieldset[disabled] a.btn {
+        pointer-events: none;
+      }
+      .btn-default {
+        color: #333333;
+        background-color: #fc7753;
+        border-color: #cccccc;
+      }
+      .btn-default:focus,
+      .btn-default.focus {
+        color: #333333;
+        background-color: #fb4f21;
+        border-color: #8c8c8c;
+      }
+      .btn-default:hover {
+        color: #333333;
+        background-color: #fb4f21;
+        border-color: #adadad;
+      }
+      .btn-default:active,
+      .btn-default.active,
+      .open > .dropdown-toggle.btn-default {
+        color: #333333;
+        background-color: #fb4f21;
+        border-color: #adadad;
+      }
+      .btn-default:active:hover,
+      .btn-default.active:hover,
+      .open > .dropdown-toggle.btn-default:hover,
+      .btn-default:active:focus,
+      .btn-default.active:focus,
+      .open > .dropdown-toggle.btn-default:focus,
+      .btn-default:active.focus,
+      .btn-default.active.focus,
+      .open > .dropdown-toggle.btn-default.focus {
+        color: #333333;
+        background-color: #f43704;
+        border-color: #8c8c8c;
+      }
+      .btn-default:active,
+      .btn-default.active,
+      .open > .dropdown-toggle.btn-default {
+        background-image: none;
+      }
+      .btn-default.disabled:hover,
+      .btn-default[disabled]:hover,
+      fieldset[disabled] .btn-default:hover,
+      .btn-default.disabled:focus,
+      .btn-default[disabled]:focus,
+      fieldset[disabled] .btn-default:focus,
+      .btn-default.disabled.focus,
+      .btn-default[disabled].focus,
+      fieldset[disabled] .btn-default.focus {
+        background-color: #fc7753;
+        border-color: #cccccc;
+      }
+      .btn-default .badge {
+        color: #fc7753;
+        background-color: #333333;
+      }
       .vimeo {
         position: relative;
         display: block;
@@ -79,6 +215,28 @@
         width: 400px;
         border: 3px solid black;
       }
+
+      .img-container {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+
+
+      }
+
+      .img-container img{
+        width: 100%;
+        height: 100%;
+      }
+
+      #gifs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+      }
+
     </style>
   </head>
   <body>
@@ -95,9 +253,9 @@
       </div>
     </section>
 
-    <section class="flex">
+    <section class="flex plugin">
       <h1>Creating a platform for Net Artists at SAIC</h1>
-      <button>Download</button>
+      <a href= "addendum-2.2.6-fx.xpi" class="btn-default btn">Download</a>
       <p>install radblock and watch all of the annoying ads in your life get replaced by awesome net art [by cutting-edge saic students]</p>
     </section>
 
