@@ -2,6 +2,10 @@
 
 /* global config Uploader */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * CYCLE BACKGROUND COLOR
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 let i = Math.floor(Math.random() * 360)
 console.log('i', i)
 function loop () {
@@ -11,6 +15,10 @@ function loop () {
   window.requestAnimationFrame(loop)
 }
 window.requestAnimationFrame(loop)
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * VALIDATE EMAIL CODE
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 const email = getParameterByName('email')
 const code = getParameterByName('code')
@@ -33,6 +41,21 @@ if (email && code) {
   xhr.send()
 }
 
+// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParameterByName (name, url) {
+  if (!url) url = window.location.href
+  name = name.replace(/[\[\]]/g, '\\$&')
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
+  var results = regex.exec(url)
+  if (!results) return null
+  if (!results[2]) return ''
+  return decodeURIComponent(results[2].replace(/\+/g, ' '))
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * SHOW ALERTS
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 var flashes = 0
 function flasher (msg) {
   var el = document.getElementById('flash')
@@ -43,6 +66,10 @@ function flasher (msg) {
     el.removeChild(document.getElementById(flash))
   }, 5000)
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * GIF GALLERY
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 var xmlhttp = new window.XMLHttpRequest()
 var url = 'http://b.ss.cx/http://list.radblock.xyz'
@@ -63,6 +90,10 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open('GET', url, true)
 xmlhttp.send()
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * GIF UPLOAD
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 new Uploader({
   input: {
     file: document.getElementById('file'),
@@ -72,15 +103,4 @@ new Uploader({
   signatory_url: config.lambda_url + 'submit',
   logger: flasher
 })
-
-// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-function getParameterByName (name, url) {
-  if (!url) url = window.location.href
-  name = name.replace(/[\[\]]/g, '\\$&')
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
-  var results = regex.exec(url)
-  if (!results) return null
-  if (!results[2]) return ''
-  return decodeURIComponent(results[2].replace(/\+/g, ' '))
-}
 
