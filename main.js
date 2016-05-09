@@ -55,7 +55,7 @@ xmlhttp.onreadystatechange = function () {
     console.log(images)
     images.forEach(function (item) {
       var putGif = document.getElementById('gifs')
-      putGif.innerHTML += '<img src="' + item.image + '"\/><\/a>'
+      putGif.innerHTML += '<div class="img-container"><img src="' + item.image + '"\/></div>'
       console.log('item', item)
     })
   }
