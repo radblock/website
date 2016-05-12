@@ -2,284 +2,129 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <title>Radblock</title>
+    <meta name="description" content="install radblock and watch all of the annoying ads in your life get replaced by awesome net art [by cutting-edge saic students]">
+    <meta name="keywords" content="Adblock,Gifs,NetArt,SAIC">
+    <meta name="author" content="Andrew Monks" "Taylor Cleveland">
+
+    <title>RADBLOCK</title>
+
+    <link rel="icon" 
+      type="image/png" 
+      href="favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel='stylesheet' id='bootstrap-css'  href='css/bootstrap.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-extends-css'  href='css/bootstrap-extends.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='theme-css'  href='css/theme.css' type='text/css' media='all' />
 
     <link rel='stylesheet' id='tf-google-webfont-montserrat-css'  href='http://fonts.googleapis.com/css?family=Montserrat%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
     <link rel='stylesheet' id='tf-google-webfont-source-code-pro-css'  href='http://fonts.googleapis.com/css?family=Source+Code+Pro%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
     <link rel='stylesheet' id='tf-google-webfont-roboto-css'  href='http://fonts.googleapis.com/css?family=Roboto%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
+    <link rel='stylesheet' id='tf-google-webfont-open-sans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans%3A400&amp;subset=latin%2Clatin-ext&amp;ver=489d70e12acd1721a07ec50187cbbd66' type='text/css' media='all' />
 
-    <style>
-      body,
-      form {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-      }
-      body {
-        padding-bottom: 50;
-        font-family: "Source Code Pro", sans-serif;
-      }
-      .flex {
-        max-width: 881px;
-      }
-      .submission {
-        max-width: 300px;
-        border: 3px solid;
-        padding: 1em 3em;
-        margin: 2em 0;
-      }
-
-      .plugin {
-        max-width: 500px;
-      }
-
-      form > * {
-        width: 100%;
-      }
-
-      header {
-        background-image: url('stop.png');
-        background-position: center;
-        width: 500px;
-        height: 500px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        font-size: 200%;
-      }
-      header h1 {
-        text-transform: uppercase;
-        font-family: Montserrat,sans-serif;
-      }
-
-      header h2 {
-        font-family: Montserrat,sans-serif;
-        font-size: 100%;
-      }
-
-      h1{
-        font-family: Roboto;
-      }
-
-      .btn {
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: normal;
-        text-align: center;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-            touch-action: manipulation;
-        cursor: pointer;
-        background-image: none;
-        border: 1px solid transparent;
-        white-space: nowrap;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        border-radius: 4px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      .btn:focus,
-      .btn:active:focus,
-      .btn.active:focus,
-      .btn.focus,
-      .btn:active.focus,
-      .btn.active.focus {
-        outline: thin dotted;
-        outline: 5px auto -webkit-focus-ring-color;
-        outline-offset: -2px;
-      }
-      .btn:hover,
-      .btn:focus,
-      .btn.focus {
-        color: #333333;
-        text-decoration: none;
-      }
-      .btn:active,
-      .btn.active {
-        outline: 0;
-        background-image: none;
-        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-      }
-      .btn.disabled,
-      .btn[disabled],
-      fieldset[disabled] .btn {
-        cursor: not-allowed;
-        opacity: 0.65;
-        filter: alpha(opacity=65);
-        -webkit-box-shadow: none;
-        box-shadow: none;
-      }
-      a.btn.disabled,
-      fieldset[disabled] a.btn {
-        pointer-events: none;
-      }
-      .btn-default {
-        color: #333333;
-        background-color: #fc7753;
-        border-color: #cccccc;
-      }
-      .btn-default:focus,
-      .btn-default.focus {
-        color: #333333;
-        background-color: #fb4f21;
-        border-color: #8c8c8c;
-      }
-      .btn-default:hover {
-        color: #333333;
-        background-color: #fb4f21;
-        border-color: #adadad;
-      }
-      .btn-default:active,
-      .btn-default.active,
-      .open > .dropdown-toggle.btn-default {
-        color: #333333;
-        background-color: #fb4f21;
-        border-color: #adadad;
-      }
-      .btn-default:active:hover,
-      .btn-default.active:hover,
-      .open > .dropdown-toggle.btn-default:hover,
-      .btn-default:active:focus,
-      .btn-default.active:focus,
-      .open > .dropdown-toggle.btn-default:focus,
-      .btn-default:active.focus,
-      .btn-default.active.focus,
-      .open > .dropdown-toggle.btn-default.focus {
-        color: #333333;
-        background-color: #f43704;
-        border-color: #8c8c8c;
-      }
-      .btn-default:active,
-      .btn-default.active,
-      .open > .dropdown-toggle.btn-default {
-        background-image: none;
-      }
-      .btn-default.disabled:hover,
-      .btn-default[disabled]:hover,
-      fieldset[disabled] .btn-default:hover,
-      .btn-default.disabled:focus,
-      .btn-default[disabled]:focus,
-      fieldset[disabled] .btn-default:focus,
-      .btn-default.disabled.focus,
-      .btn-default[disabled].focus,
-      fieldset[disabled] .btn-default.focus {
-        background-color: #fc7753;
-        border-color: #cccccc;
-      }
-      .btn-default .badge {
-        color: #fc7753;
-        background-color: #333333;
-      }
-      .vimeo {
-        position: relative;
-        display: block;
-        padding: 0;
-        width: 600px;
-        padding-bottom: 56%;
-        height: 0;
-      }
-      .vimeo iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        height: 100%;
-        width: 100%;
-        border: 0;
-      }
-
-      #flash {
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        pointer-events: none;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      .flash {
-        background: white;
-        margin: 10px;
-        width: 400px;
-        border: 3px solid black;
-      }
-
-      .img-container {
-        width: 200px;
-        height: 200px;
-        margin: 10px;
-
-
-      }
-
-      .img-container img{
-        width: 100%;
-        height: 100%;
-      }
-
-      #gifs {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-
-      }
-
-    </style>
+    <script src="http://cdn.jsdelivr.net/modernizr/2/modernizr.min.js"></script>
+    <script type='text/javascript' src='js/jquery-ver.js'></script>
   </head>
+
+
   <body>
-    <header class="flex">
-      <div>
-        <h1>Radblock</h1>
-        <h2>#the first of its kind</h2>
+    <div class="splash" data-om-splash="400">
+      <svg class="splash-icon splash-icon-circles" width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd" stroke-width="2">
+              <circle cx="22" cy="22" r="20"></circle>
+              <circle cx="22" cy="22" r="20"></circle>
+          </g>
+      </svg>
+    </div>
+
+    <div class="wrap" role="document">
+      <article class="post-55 page type-page status-publish hentry">
+
+        <header class="entry-header">
+          <div class="section section-header" 
+            data-scroll-bg="#eff7f6;#b2f7ef;#f7d6e0" 
+            data-scroll-target="body,.navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu" 
+            data-scroll-alpha="[1,0,1,1]">
+            <div class="section-background section-background-image"
+              data-scroll-trigger=".section"
+              data-scroll-animate="transform:translate3d(0,$1%,0)"
+              data-0_100="0"
+              data-100_100="40">
+            </div>
+                                
+          <div class="section-flex"
+              data-vhmin="100" 
+              data-vhmin-offset=".navmenu">
+            <div class="section-flex-middle">
+              <div class="container">
+                <div class="section-content">
+                  <div class="text-center"
+                      data-scroll-trigger=".section"
+                      data-scroll-animate="transform:translateY($1px);opacity"
+                      data-0_100="0;1"
+                      data-70_100="210;0"
+                      data-100_100="300;0">
+
+                  <h1 class="title entry-title">RADBLOCK</h1>
+                    <div class="subtitle h3">#gif'd out</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+  </header>
 
-    <section class="flex">
-      <div class="vimeo">
-        <iframe src="https://player.vimeo.com/video/165628371?color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      </div>
-    </section>
+        <section class = "flex">
+        <section class="vimeo flex">
+          <div style="text-align: center;" class="vimeo">
+          <iframe src="https://player.vimeo.com/video/165628371?color=ffffff&title=0&byline=0&portrait=0"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </section>
 
-    <section class="flex plugin">
-      <h1>Creating a platform for Net Artists at SAIC</h1>
-      <a href= "addendum-2.2.6-fx.xpi" class="btn-default btn">Download</a>
-      <p>install radblock and watch all of the annoying ads in your life get replaced by awesome net art [by cutting-edge saic students]</p>
-    </section>
+        <section class="flex plugin">
+          <h2 style="text-align: center;font-family:Roboto;font-weight:300;font-style:normal" 
+              class="vc_custom_heading">Creating a platform for Net Artists at SAIC</h2>              
 
-    <section class="flex">
-      <h1>Current Gifs</h1>
-      <div id="gifs"></div>
-    </section>
+            <div class="text-center wpb_column vc_column_container vc_col-sm-12">
+              <a href="addendum-2.2.6-fx.xpi"         
+                  title="download" 
+                  style="background-color:#fc7753;color:#ffffff;" 
+                  class="btn btn-lg btn-square btn-custom">Download</a>
+            </div>
+            <br>
 
-    <section class="submission">
-      <h1>Submit a gif</h1>
-      <p>pay [a dollar], [verify your saic email address,] and upload a .gif. for the next [week], your .gif will be added to our pool of ad-replacement .gifs.</p>
-      <form>
-        <input id="email" type="text" placeholder="email" name="email"><br>
-        <input id="password" type="password" placeholder="password" name="email"><br>
-        <input id="file" type="file">
-      </form>
-    </section>
+            <p class="text-center">install radblock and watch all of the annoying ads in your life get replaced by awesome net art [by cutting-edge saic students]</p>
+        </section>
+        <br>
+                  
+        <section class="flex">
+          <h3 class="text-center">Current Gifs</h3>
+            <div id = "gifs"> </div>
+        </section>
+        <br>
+        <br>
+        
+        <section class="submission">
+          <h3>Submit a gif</h3>
+            <p class = "text-center">pay [a dollar], [verify your saic email address,] and upload a .gif. for the next [week], your .gif will be added to our pool of ad-replacement .gifs.</p>
 
-    <footer class="flex">
-      <p>Created by Andrew Monks &amp; Taylor Cleveland</p>
-    </footer>
+          <form>
+            <input id="email" type="text" placeholder="email" name="email"><br>
+            <input id="password" type="password" placeholder="password" name="email"><br>
+            <input id="file" type="file">
+          </form>
+        </section>
+        <br>
+
+        <footer class="flex">             
+            <p class="text-center"> Created by <a href = "https://monks.co">Andrew Monks</a> & <a href = "https://taylorcleve.land">Taylor Cleveland</a></p>
+          </footer>
 
     <div id="flash"></div>
-
+    <script type='text/javascript' src='js/scripts.js'></script>
     <script src="upload.js"></script>
     <script>
       const config = {
@@ -287,5 +132,7 @@
       }
     </script>
     <script src="main.js"></script>
+    </section>
+
   </body>
 </html>
