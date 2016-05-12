@@ -45,6 +45,18 @@
         border: 0;
       }
 
+      #flash {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
 
       .flash {
         background: white;
@@ -57,8 +69,6 @@
         width: 200px;
         height: 200px;
         margin: 10px;
-
-
       }
 
       .img-container img{
@@ -648,103 +658,103 @@
 
   .btn-default.btn-3d{
   border-color:transparent;
-  box-shadow:0 4px 0 
+  box-shadow:0 4px 0
   }
 
   .btn-default.btn-3d:hover{
-  box-shadow:0 2px 0  
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d:focus{
-  box-shadow:0 2px 0  
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d:active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-xs{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-xs:hover{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-xs:focus{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-xs:active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-xs.active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-sm{
-  box-shadow:0 3px 0 
+  box-shadow:0 3px 0
   }
 
   .btn-default.btn-3d.btn-sm:hover{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-sm:focus{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-sm:active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-sm.active{
-  box-shadow:0 1px 0 
+  box-shadow:0 1px 0
   }
 
   .btn-default.btn-3d.btn-lg{
-  box-shadow:0 6px 0 
+  box-shadow:0 6px 0
   }
 
   .btn-default.btn-3d.btn-lg:hover{
-  box-shadow:0 3px 0 
+  box-shadow:0 3px 0
   }
 
   .btn-default.btn-3d.btn-lg:focus{
-  box-shadow:0 3px 0 
+  box-shadow:0 3px 0
   }
 
   .btn-default.btn-3d.btn-lg:active{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-lg.active{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-xl{
-  box-shadow:0 8px 0 
+  box-shadow:0 8px 0
   }
 
   .btn-default.btn-3d.btn-xl:hover{
-  box-shadow:0 4px 0 
+  box-shadow:0 4px 0
   }
 
   .btn-default.btn-3d.btn-xl:focus{
-  box-shadow:0 4px 0 
+  box-shadow:0 4px 0
   }
 
   .btn-default.btn-3d.btn-xl:active{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-3d.btn-xl.active{
-  box-shadow:0 2px 0 
+  box-shadow:0 2px 0
   }
 
   .btn-default.btn-link{
